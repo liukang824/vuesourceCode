@@ -4,9 +4,7 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-
-    <!-- 路由出口 -->
-    <router-view />
+   <router-view></router-view>
   </div>
 </template>
 

@@ -1,5 +1,18 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <div>
+      <span>About Page</span><br>
+      <router-link to="/about/a">hello A</router-link> | 
+      <router-link to="/about/b">hello B</router-link>
+      <hr>
+      <router-view></router-view>
+    </div>
 </template>
+
+<script>
+export default {
+
+}
+
+</script>
+<style>
+</style>

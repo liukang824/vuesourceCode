@@ -1,10 +1,10 @@
 import install from './install'
-import createMatcher from './create-matcher'
+import createMatch from './create-matcher'
 import Htm5History from './history/history'
 import HashHistory from './history/hash'
 export default class Router {
   constructor(options) {
-    this.matcher = createMatcher(options.routes || [])
+    this.matcher = createMatch(options.routes || [])
     switch (options.mode) {
       case 'hash':
         this.history = new HashHistory(this)
@@ -12,9 +12,7 @@ export default class Router {
       case 'history':
         this.history = new Htm5History(this)
     }
-    this.push =  function push(path) {
-      this.history.push(path)
-  }
+    // this.push =  
   }
   init(app) {
     const history = this.history
@@ -32,7 +30,9 @@ export default class Router {
     match(path) {
       return this.matcher.match(path)
     }
-   
+   push(path) {
+      this.history.push(path)
+  }
 
 }
 

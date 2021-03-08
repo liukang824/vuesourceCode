@@ -1,10 +1,10 @@
 import createRouteMap from "./create-route-map"
 import {createRoute} from './history/base'
-export default  function createMatcher(routes){
+export default  function createMatch(routes){
   // 初始化配置 
-  let {pathList,pathMap} = createRouteMap(routes)
+  let { pathMap } = createRouteMap(routes)
   function  addRoutes(routes) {
-    createRouteMap(routes,pathList,pathMap) 
+    createRouteMap(routes) 
   }
   // 根据对应的路由寻找对应的地址匹配
   function match(route){
