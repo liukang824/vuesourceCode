@@ -1,40 +1,29 @@
-export  function createRoute (record,location){
-  let res = []
-  if(record){
-    while (record) {
-      res.unshift(record)
-      record = record.parent
-    }
+
+export default class History {
+  constructor(router) {
+      this.router = router
+      this.current = createRoute(null, { path: '/'})
   }
-  return {
-    ...location,
-    matched:res
+  transitionTo(path, callback) {
+      let route = this.router.match(path)
+      this.current = route
+      this.cb && this.cb(route)
+      callback && callback()
   }
-}
-export default  class History{
-  constructor(route){
-    this.route = route
-    this.current = createRoute(null,{path:'/'})
-    
-    // 江新的路由route 属性覆盖current 
-    if(this.current.path === location && route.matched.length=== this.current.matched.length){
-      return;
-    }
-    this.updateRoute(route)
-  }
-  transitionTo (location,onComplete){
-    let route = this.route.match(location)
-    this.current = route
-    // this.cb && this.cb(route)
-    onComplete && onComplete()
-    
+  listen(cb) {
+      this.cb = cb
   }
 
-  updateRoute(route){
-    this.current = route
-    this.cb && this.cb(route)  //路径变化 视图刷新
+}
+export function createRoute(record, location) {
+  // debugger
+  let res = []
+  while(record) {
+      res.unshift(record)
+      record = record.parent
   }
-  listen(cb){
-    this.cb = cb
+  return {
+      ...location,
+      matched: res
   }
 }
