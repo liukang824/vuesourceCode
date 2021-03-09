@@ -19,7 +19,7 @@ npm run build
 ```
 npm run lint
 ```
-###src/vue-router
+### src/vue-router
   ```
    index.js //创建router 类  初始化 
    插件 install.js  
