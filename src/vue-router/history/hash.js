@@ -9,7 +9,7 @@ export default class HashHistory extends History {
         window.addEventListener('hashchange', () => {
             console.log('hashchange')
             this.transitionTo(getHash())
-        })
+    })
     }
     getCurrentLocation() {
         return getHash()

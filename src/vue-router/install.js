@@ -28,7 +28,6 @@ export default function install(Vue) {
   })
   Vue.component('router-link', RouterLink)
   Vue.component('router-view', RouterView)
-
 }
 
 
