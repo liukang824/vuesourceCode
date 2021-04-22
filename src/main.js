@@ -17,7 +17,6 @@ Vue.use(create)
 new Vue({
   // Vue.prototype.$router = router
   router,
-
   store,
   render: h => h(App)
 }).$mount('#app')
